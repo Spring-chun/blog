@@ -20,7 +20,7 @@ sass:
   # generate social links in footer
   social_links:
     twitter: thelehhman
-    github:  13476075014
+    github:  '13476075014'
     linkedIn: in/thelehhman
     rss: rss
     # dribbble: jekyll

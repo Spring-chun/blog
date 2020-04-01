@@ -12,6 +12,7 @@
     |-- plainwhite.gemspec
     |-- screenshot.png
     |-- sitemap.xml
+    |-- _data //放一些其他配置文件,必须是.yml或者.yaml格式的,比如有一个文件叫members.yml,如果想引用这个文件里的内容就通过site.data.membres来引用
     |-- _includes
     |   |-- head.html
     |-- _layouts

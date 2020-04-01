@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "我的GitHub博客"
+date:   2019-03-23 21:03:36 +0530
+categories: Javascript NodeJS
+---
+防抖函数和节流函数用于什么场景？有什么区别？如何实现和使用？
+
+```javascript
+function debounce( fn ){ // 传一个回调函数
+    let Mytime = null ;
+    return function( ){ 
+        clearTimeout( Mytime ) ; // 清除定时器
+        Mytime  = setTimeout( () => {
+             fn.apply(this,arguments)
+         }, 200)
+    }
+}
+function sayHi() {
+      console.log('防抖成功');
+    }
+
+var select = document.getElementById('myselect');
+select .addEventListener('change', debounce(sayHi)); // 防抖
+
+
+function throttle( fn ){ //节流函数
+    let canUse = true ; // 设置一个开关
+    return function(){
+        if(!canUse ){ return false } // 如果开关已经关掉了就不用往下了
+        canUse  = false  // 利用闭包刚进来的时候关闭开关
+        setTimeout( ( ) => { 
+                fn.apply(this,arguments)
+　　　　　　　　　　canUse = true // 执行完才打开开关
+            },500)
+    }
+} 
+
+function sayHi(e) {
+    console.log(e.target.innerWidth, e.target.innerHeight);
+}
+window.addEventListener('resize', throttle(sayHi));
+
+```
